@@ -1,97 +1,66 @@
-New Collection
+# Voting Application
+
+This is a backend application for a voting system where users can vote for candidates. It provides functionalities for user authentication, candidate management, and voting.
+
+## Features
+
+- User sign up and login with Aadhar Card Number and password
+- User can view the list of candidates
+- User can vote for a candidate (only once)
+- Admin can manage candidates (add, update, delete)
+- Admin cannot vote
+
+## Technologies Used
+
+- Node.js
+- Express.js
+- MongoDB
+- JSON Web Tokens (JWT) for authentication
+
+## Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/Prince-1501/voting_app.git
 
 
+# API Endpoints
 
-Voting system api
+## Authentication
 
+### Sign Up
+- `POST /signup`: Sign up a user
 
+### Login
+- `POST /login`: Login a user
 
-POST
-candidate voting endpoint
-http://localhost:3000/candidate/vote/:candidateID
-we send a token of the user in headers so as to sonfirm he is not voting more then once
+## Candidates
 
+### Get Candidates
+- `GET /candidates`: Get the list of candidates
 
+### Add Candidate
+- `POST /candidates`: Add a new candidate (Admin only)
 
-Authorization
-Bearer Token
-Token
-<token>
-Query Params
-Path Variables
-candidateID
-POST
-user(voter) sign up
-http://localhost:3000/user/signup
-header token required
+### Update Candidate
+- `PUT /candidates/:id`: Update a candidate by ID (Admin only)
 
+### Delete Candidate
+- `DELETE /candidates/:id`: Delete a candidate by ID (Admin only)
 
+## Voting
 
-Body
-raw (json)
-json
-{ "name": "manju Kumar",
-"age": 30,
-"mobile": "9872332210",
-"email": "rajuasd@example.com",
-"address": "123 ,ABC Street,XYZ City ",
-"aadharCardNumber": "4567839234574839",
-"password": "password123",
-"role": "voter"
-}
-POST
-create candidate
-http://localhost:3000/candidate
-header token require
+### Get Vote Count
+- `GET /candidates/vote/count`: Get the count of votes for each candidate
 
+### Vote for Candidate
+- `POST /candidates/vote/:id`: Vote for a candidate (User only)
 
+## User Profile
 
-PUT
-candidate information update
-http://localhost:3000/candidate/:candidateID
+### Get Profile
+- `GET /users/profile`: Get user profile information
 
-
-
-Path Variables
-candidateID
-DELETE
-candidate delete
-http://localhost:3000/candidate/:candidateID
-
-
-
-Path Variables
-candidateID
-GET
-candidate vote count
-http://localhost:3000/candidate/vote/count
-
-
-
-GET
-candidate list
-http://localhost:3000/candidate/list
-
-
-
-POST
-user(voter) sign up
-http://localhost:3000/user/signup
-
-
-
-POST
-user(voter) login
-http://localhost:3000/user/login
-
-
-
-GET
-user(voter) profile
-http://localhost:3000/user/profile
-
-
-
-PUT
-user(voter) password change
-http://localhost:3000/user/profile/password
+### Change Password
+- `PUT /users/profile/password`: Change user password
